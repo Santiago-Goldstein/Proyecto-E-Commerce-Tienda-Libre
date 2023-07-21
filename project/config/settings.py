@@ -9,18 +9,24 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
+import sys
 from pathlib import Path
+
+from django.core.management.utils import get_random_secret_key
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+APPS_DIR = BASE_DIR / "apps"
+sys.path.append(str(APPS_DIR))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-i4a0y+)lokh%(t6et56b2)_m&qb!#fbk7!#yjwzbtj15ghzu-)"
+SECRET_KEY = get_random_secret_key()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "Home",
+    "producto",
 ]
 
 MIDDLEWARE = [
@@ -121,3 +129,10 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# LOGIN_URL = reverse_lazy("Home:login")
+
+# LOGIN_REDIRECT_URL = reverse_lazy("Home:index")
+
+# MEDIA_ROOT = BASE_DIR / "media"  # Dice donde esta la carpeta media
+# MEDIA_URL = "/media/"  # Sirve para cuando el usuario carga una imagen al la pagina
