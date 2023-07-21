@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "ms-ceintl.vscode-language-pack-es",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.autopep8",
+        "ms-python.isort",
+        "aaron-bond.better-comments",
+        "almahdi.code-django",
+        "mhutchie.git-graph",
+        "qwtel.sqlite-viewer",
+        "pkief.material-icon-theme",
+        "bito.bito",
+        "hossaini.bootstrap-intellisense",
+    ]
+}

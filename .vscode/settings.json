@@ -1,0 +1,56 @@
+{
+    // *** PYTHON
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.enableSyncServer": true,
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.gotoDefinitionInStringLiteral": true,
+    "python.terminal.focusAfterLaunch": true,
+    "files.autoSave": "onFocusChange",
+    "editor.minimap.enabled": false,
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.suggest.showWords": false,
+    "editor.mouseWheelZoom": true,
+    "files.exclude": {
+        ".git": true,
+        "**/__pycache__": true
+    },
+    "git.autofetch": true,
+    
+    // *** WORKBENCH
+    "workbench.tree.indent": 20,
+    "workbench.startupEditor": "none",
+    "workbench.colorCustomizations": {
+        "tree.indentGuidesStroke": "#0091ff",
+        "editorIndentGuide.activeBackground": "#0091ff",
+        "editor.background": "#131313",
+        "terminal.background": "#000000",
+    },
+    
+    // *** FORMATEADOR
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.autopep8",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true,
+            "editor.formatOnType": true,
+        },
+    },
+    // *** ISORT
+    "isort.args": [
+        "--profile",
+        "black",
+    ],
+    // *** SQLITE-VIEWER
+    "workbench.editorAssociations": {
+        "*.db": "sqlite-viewer.option"
+    },
+    // *** DJLINT
+    "[django-html]": {
+        "editor.defaultFormatter": "monosans.djlint"
+    },
+    "emmet.includeLanguages": {
+        "django-html":"html",
+    },
+    "workbench.iconTheme": "material-icon-theme",
+}
