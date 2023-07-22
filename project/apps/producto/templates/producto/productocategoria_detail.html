@@ -11,6 +11,10 @@
         <li>Descripción: {{ object.descripcion }}</li>
     </ul>
 
+    <div class="d-grid gap-3">
+        <a href="{% url 'producto:productocategoria_list' %}" class="btn btn-info ">Ir atrás</a>
+    </div>
 
+    <br>
     {% include 'Home/index_back.html' %}
 {% endblock INDEX_CONTENIDO %}

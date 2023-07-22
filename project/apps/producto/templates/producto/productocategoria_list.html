@@ -11,9 +11,12 @@
         {% for object in object_list %}
             <ul>
                 <li>{{ object.nombre }}
-                    <a href="{% url 'producto:productocategoria_detail' object.id %}">Ver detalle</a>
-                    <a href="{% url 'producto:productocategoria_update' object.id %}">Actualizar</a>
-                    <a href="{% url 'producto:productocategoria_delete' object.id %}">Eliminar</a>            
+                    <a href="{% url 'producto:productocategoria_detail' object.id %}" class="btn btn-secondary btn-sm">
+                        Ver detalle</a>
+                    <a href="{% url 'producto:productocategoria_update' object.id %}" class="btn btn-primary btn-sm">
+                        Actualizar</a>
+                    <a href="{% url 'producto:productocategoria_delete' object.id %}" class="btn btn-danger btn-sm">
+                        Eliminar</a>            
                 </li>
             </ul>
         {% endfor %}
@@ -22,7 +25,10 @@
         <p>no hay elementos</p>
 
     {% endif %}
-        
-    
+
+    <div class="d-grid gap-3">
+        <a href="{% url 'producto:home' %}" class="btn btn-info ">Ir a Productos</a>
+    </div>
+    <br>
     {% include 'Home/index_back.html' %}
 {% endblock INDEX_CONTENIDO %}
