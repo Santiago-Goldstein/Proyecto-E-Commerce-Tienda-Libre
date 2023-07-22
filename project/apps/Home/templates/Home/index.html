@@ -1,11 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hola</h1>
-</body>
-</html>
+{% extends 'Home/base.html' %}
+{% load static %}
+
+{% block BASE_CONTENIDO %}
+
+    <div class="row aling-items-center my-5">
+        <h1 class="pb-lg-3 text-bg-dark ">
+            {% block INDEX_TITULO %}
+                ¡Vendé eso que ya no usas!
+            {% endblock INDEX_TITULO %}
+        </h1>
+    </div>
+
+    {% block INDEX_CONTENIDO %}
+
+
+    <!-- Heading Row-->
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'Home/img/tienda_libre.png' %}" alt="..." /></div>
+            <div class="col-lg-5">
+                <h1 class="font-weight-light">TIENDA LIBRE</h1>
+                <p>Esta aplicación web fue creada con el fin de practicar mis conocimientos en Python/Django, la misma le permitirá registrarse, iniciar sesión, poner a la venta un producto y muchas otras cosas más. Te invito a que conozcas todas las características que esta web tiene para el usuario.</p>
+                <a class="btn btn-primary" href="{% url 'Home:about' %}">Sobre Mi</a>
+            </div>
+        </div>
+
+    <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+
+            {% include 'Home/card.html' with card="Tarjeta 1" %}
+            {% include 'Home/card.html' with card="Tarjeta 2" %}
+            {% include 'Home/card.html' with card="Tarjeta 3" %}
+
+        </div>
+    {% endblock INDEX_CONTENIDO %}
+
+{% endblock BASE_CONTENIDO %}
