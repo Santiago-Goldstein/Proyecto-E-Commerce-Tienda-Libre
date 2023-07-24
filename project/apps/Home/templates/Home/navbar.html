@@ -9,7 +9,7 @@
                 
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link {% if  request.path == "/producto/" %} active {% endif %}" href="{% url 'producto:home' %}">Productos</a></li>
-                    {% else %}
+                {% else %}
                     <li class="nav-item"><a class="nav-link text-info {% if  request.path == "/login/" %} active {% endif %}" href="{% url 'Home:login' %}">login</a></li>
                 {% endif %}
             </ul>
