@@ -1,7 +1,10 @@
 from typing import Any
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models.query import QuerySet
+from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
     DeleteView,
@@ -13,6 +16,7 @@ from django.views.generic import (
 from . import forms, models
 
 
+@login_required
 def index(request):
     return render(request, "producto/index.html")
 
