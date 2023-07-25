@@ -62,7 +62,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -132,7 +132,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = reverse_lazy("Home:login")
 
-# LOGIN_REDIRECT_URL = reverse_lazy("Home:index")
+LOGIN_REDIRECT_URL = reverse_lazy("Home:index")
 
 # MEDIA_ROOT = BASE_DIR / "media"  # Dice donde esta la carpeta media
 # MEDIA_URL = "/media/"  # Sirve para cuando el usuario carga una imagen al la pagina

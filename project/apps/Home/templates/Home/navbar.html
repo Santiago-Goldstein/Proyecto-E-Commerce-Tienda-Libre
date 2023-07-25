@@ -8,6 +8,7 @@
                 
                 {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link {% if  request.path == "/producto/" %} active {% endif %}" href="{% url 'producto:home' %}">Productos</a></li>
+                    <li class="nav-item"><a class="nav-link {% if  request.path == "/vender/" %} active {% endif %}" href="https://wa.me/+5491139556151" target="_blank">Solicitá acceso para Vender</a></li>
                     <li class="nav-item"><a class="nav-link text-bg-info {% if  request.path == "/" %} active {% endif %}" href="#!">{{ user.username }}</a></li>
                     <li class="nav-item"><a class="nav-link text-info {% if  request.path == "/logout/" %} active {% endif %}" href="{% url 'Home:logout' %}">Logout</a></li>
                 {% else %}

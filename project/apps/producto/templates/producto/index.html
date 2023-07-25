@@ -11,11 +11,14 @@
     </h3>
 
     <div class="d-grid gap-3 ">
-        <a href="{% url 'producto:productocategoria_create' %}" class="btn btn-primary ">Crear Categorias de Productos</a>       
-        <br>
-        <a href="{% url 'producto:productocategoria_list' %}" class="btn btn-primary ">Listar Categorias de Productos</a>
+        {% if perms.producto.add_categoriadeproductos %}
+            <a href="{% url 'producto:productocategoria_create' %}" class="btn btn-primary ">Crear Categorias de Productos</a>
+            <br>
+        {% endif %}
+        <a href="{% url 'producto:productocategoria_list' %}" class="btn btn-primary ">Ver Categorias de Productos</a>
         <br>
     </div>
+
 
     {% include 'Home/index_back.html' %}
 

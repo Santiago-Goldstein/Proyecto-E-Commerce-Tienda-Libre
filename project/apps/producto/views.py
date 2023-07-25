@@ -1,7 +1,7 @@
 from typing import Any
 
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models.query import QuerySet
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
@@ -25,22 +25,25 @@ class ProductoCategoriaList(ListView):
     model = models.ProductoCategoria
 
 
-class ProductoCategoriaCreate(CreateView):
+class ProductoCategoriaCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = models.ProductoCategoria
     form_class = forms.ProductoCategoriaForm
     success_url = reverse_lazy("producto:productocategoria_list")
+    permission_required = 'producto.add_categoriadeproductos'
+
+
+class ProductoCategoriaUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    model = models.ProductoCategoria
+    form_class = forms.ProductoCategoriaForm
+    success_url = reverse_lazy("producto:productocategoria_list")
+    permission_required = 'producto.change_categoriadeproductos'
+
+
+class ProductoCategoriaDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    model = models.ProductoCategoria
+    success_url = reverse_lazy("producto:productocategoria_list")
+    permission_required = 'producto.delete_categoriadeproductos'
 
 
 class ProductoCategoriaDetail(DetailView):
     model = models.ProductoCategoria
-
-
-class ProductoCategoriaUpdate(UpdateView):
-    model = models.ProductoCategoria
-    form_class = forms.ProductoCategoriaForm
-    success_url = reverse_lazy("producto:productocategoria_list")
-
-
-class ProductoCategoriaDelete(DeleteView):
-    model = models.ProductoCategoria
-    success_url = reverse_lazy("producto:productocategoria_list")

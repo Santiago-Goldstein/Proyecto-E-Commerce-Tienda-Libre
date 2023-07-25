@@ -13,7 +13,27 @@
 
     {% block INDEX_CONTENIDO %}
 
-    {{ mensaje }}
+
+    {% if user.is_authenticated %}
+        {{ mensaje }}
+        <h3> Bienvenido/a {{ user.username }} </h3>
+    {% else %}
+        <div class="fs-3 fst-italic text-bg-secondary text-center">
+            <p>Inicia sesión para comprar o vender productos.</p>
+        </div>
+    {% endif %}
+
+    {% if user.is_staff %}
+        <div class="row ">
+            <a href="{% url 'admin:index' %}" class="btn btn-outline-dark ">Panel de Administración</a>
+        </div>
+        <div class="row ">
+            <a href="{% url 'Home:register' %}" class="btn btn-outline-dark ">Registrar nuevo vendedor</a>
+        </div>
+    {% endif %}
+
+
+
     <!-- Heading Row-->
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
             <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'Home/img/tienda_libre.png' %}" alt="..." /></div>
