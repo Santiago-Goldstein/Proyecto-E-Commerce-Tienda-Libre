@@ -6,31 +6,31 @@
 
 {% block INDEX_CONTENIDO %}
 
-    <h3 class="pb-lg-3 text-center ">
-        Categoría de productos
-    </h3>
+    <div class="d-grid gap-2 ">
+        {% if perms.producto.add_categoriadeproductos %}
+            <h3 class="pb-lg-3 text-center ">
+                Categoría de productos
+            </h3>
+            <a href="{% url 'producto:productocategoria_create' %}" class="btn btn-primary ">Crear Categorias de Productos</a>
+            <br>
+            <a href="{% url 'producto:productocategoria_list' %}" class="btn btn-primary ">Ver Categorias de Productos</a>
+            <br>
+        {% endif %}
+    </div>
+
 
     <div class="d-grid gap-2 ">
         {% if perms.producto.add_categoriadeproductos %}
-            <a href="{% url 'producto:productocategoria_create' %}" class="btn btn-primary ">Crear Categorias de Productos</a>
-            <br>
-        {% endif %}
-        <a href="{% url 'producto:productocategoria_list' %}" class="btn btn-primary ">Ver Categorias de Productos</a>
-        <br>
-    </div>
-
-    <h3 class="pb-lg-3 text-center ">
-        Productos
-    </h3>
-
-    <div class="d-grid gap-2 ">
-        {% if user.is_staff %}
+            <h3 class="pb-lg-3 text-center ">
+                Productos
+            </h3>
             <a href="{% url 'producto:producto_create' %}" class="btn btn-primary ">Crear Productos</a>       
             <br>
         {% endif %}
-        <a href="{% url 'producto:producto_list' %}" class="btn btn-primary ">Ver Productos</a>
+        <a href="{% url 'producto:producto_list' %}" class="btn btn-primary ">Ver Todos los Productos</a>
         <br>
     </div>
+    
     <br>
     <br>
     {% include 'Home/index_back.html' %}

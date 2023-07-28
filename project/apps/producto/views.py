@@ -3,7 +3,7 @@ from typing import Any
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.db.models.query import QuerySet
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import (
     CreateView,
@@ -14,6 +14,7 @@ from django.views.generic import (
 )
 
 from . import forms, models
+from .models import Producto, ProductoCategoria
 
 
 @login_required
@@ -57,35 +58,44 @@ class ProductoCategoriaDetail(DetailView):
 ###########################
 
 
-class ProductoList(ListView):  # LIST
-    model = models.Producto
+class ProductoList(ListView):
+    model = Producto
+    template_name = 'producto_list.html'
+    context_object_name = 'productos'
 
-    def get_queryset(self) -> QuerySet[Any]:
-        if self.request.GET.get("consulta"):
-            consulta = self.request.GET.get("consulta")
-            object_list = models.Producto.objects.filter(
-                nombre__icontains=consulta)
-        else:
-            object_list = models.Producto.objects.all()
-        return object_list
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categorias'] = ProductoCategoria.objects.all()
+        return context
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        categoria_id = self.request.GET.get('categoria')
+        if categoria_id:
+            categoria = ProductoCategoria.objects.get(id=categoria_id)
+            queryset = queryset.filter(categoria=categoria)
+        return queryset
 
 
-class ProductoCreate(CreateView):  # CREAR
+class ProductoCreate(LoginRequiredMixin, PermissionRequiredMixin, CreateView):  # CREAR
     model = models.Producto
     form_class = forms.ProductoForm
     success_url = reverse_lazy("producto:producto_list")
+    permission_required = 'producto.change_producto'
 
 
 class ProductoDetail(DetailView):  # DETAIL
     model = models.Producto
 
 
-class ProductoUpdate(UpdateView):  # UPDATE
+class ProductoUpdate(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):  # UPDATE
     model = models.Producto
     form_class = forms.ProductoForm
     success_url = reverse_lazy("producto:producto_list")
+    permission_required = 'producto.change_producto'
 
 
-class ProductoDelete(DeleteView):  # DELETE
+class ProductoDelete(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):  # DELETE
     model = models.Producto
     success_url = reverse_lazy("producto:producto_list")
+    permission_required = 'producto.delete_producto'

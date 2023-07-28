@@ -13,3 +13,5 @@ class ProductoForm(forms.ModelForm):
     class Meta:
         model = models.Producto
         fields = "__all__"
+        widgets = {'descripcion': forms.Textarea(
+            attrs={'rows': 4, 'class': 'form-control'}), }

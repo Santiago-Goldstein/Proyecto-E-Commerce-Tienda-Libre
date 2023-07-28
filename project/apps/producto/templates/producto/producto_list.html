@@ -1,3 +1,4 @@
+<!-- producto_list.html -->
 {% extends 'producto/index.html' %}
 
 {% block INDEX_TITULO %}
@@ -5,33 +6,40 @@
 {% endblock INDEX_TITULO %}
 
 {% block INDEX_CONTENIDO %}
+    <div class="py-lg-4 ">
+        <form action="{% url 'producto:producto_list' %}" method="get">
+            <label for="categoria">Filtrar por categoría:</label>
+            <select name="categoria" id="categoria">
+                <option value="">Todos</option>
+                {% for categoria in categorias %}
+                    <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Filtrar">
+        </form>
+    </div>
 
-    {% if object_list %}
-
-        <div class="py-lg-4 ">
-            <form action="{% url 'producto:producto_list' %}" method="get">
-                <input type="text" name="consulta" placeholder="Buscar...">
-            </form>
-        </div>
-
-        {% for object in object_list %}
-            <ul>
-                <li>{{ object.nombre }} ${{ object.precio }} 
-                    <a href="{% url 'producto:producto_detail' object.id %}" class="btn btn-secondary btn-sm">
+    {% if productos %}
+        <ul>
+            {% for producto in productos %}
+                <li>
+                    <h3 class="fs-4">Categoría: {{ producto.categoria }} </h3>
+                    {{ producto.nombre }} ${{ producto.precio }} 
+                    <a href="{% url 'producto:producto_detail' producto.id %}" class="btn btn-secondary btn-sm">
                         Ver detalle</a>
-                    <a href="{% url 'producto:producto_update' object.id %}" class="btn btn-primary btn-sm">
+                    <a href="{% url 'producto:producto_update' producto.id %}" class="btn btn-primary btn-sm">
                         Actualizar</a>
-                    <a href="{% url 'producto:producto_delete' object.id %}" class="btn btn-danger btn-sm">
+                    <a href="{% url 'producto:producto_delete' producto.id %}" class="btn btn-danger btn-sm">
                         Eliminar</a>            
                 </li>
-            </ul>
-        {% endfor %}
+            {% endfor %}
+        </ul>
     {% else %}
-        <p class="fs-4 fst-italic ">No hay registros ingresados</p>
+        <p class="fs-4 fst-italic">No hay registros ingresados</p>
     {% endif %}
         
     <div class="d-grid gap-3">
-        <a href="{% url 'producto:home' %}" class="btn btn-info ">Ir a Productos</a>
+        <a href="{% url 'producto:home' %}" class="btn btn-info">Ir a Productos</a>
     </div>
     <br>
 
