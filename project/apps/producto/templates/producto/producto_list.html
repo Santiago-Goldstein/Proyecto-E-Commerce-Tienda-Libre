@@ -6,6 +6,7 @@
 {% endblock INDEX_TITULO %}
 
 {% block INDEX_CONTENIDO %}
+
     <div class="py-lg-4 ">
         <form action="{% url 'producto:producto_list' %}" method="get">
             <label for="categoria">Filtrar por categoría:</label>
@@ -22,8 +23,7 @@
     {% if productos %}
         <ul>
             {% for producto in productos %}
-                <li>
-                    
+                <li>                    
                     <h3 class="fs-4">Categoría: {{ producto.categoria }} </h3>
                     {{ producto.nombre }} ${{ producto.precio }} 
                     <a href="{% url 'producto:producto_detail' producto.id %}" class="btn btn-secondary btn-sm">

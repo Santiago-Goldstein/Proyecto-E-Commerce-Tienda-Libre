@@ -1,7 +1,8 @@
+
+from django.contrib.auth.views import LogoutView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 from django.views.generic import TemplateView
-from django.contrib.auth.views import LogoutView
 
 from . import views
 

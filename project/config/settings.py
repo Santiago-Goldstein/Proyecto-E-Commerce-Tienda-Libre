@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "Home",
     "producto",
+    "venta",
 ]
 
 MIDDLEWARE = [
@@ -134,5 +135,5 @@ LOGIN_URL = reverse_lazy("Home:login")
 
 LOGIN_REDIRECT_URL = reverse_lazy("Home:index")
 
-# MEDIA_ROOT = BASE_DIR / "media"  # Dice donde esta la carpeta media
-# MEDIA_URL = "/media/"  # Sirve para cuando el usuario carga una imagen al la pagina
+MEDIA_ROOT = BASE_DIR / "media"  # Dice donde esta la carpeta media
+MEDIA_URL = "/media/"
