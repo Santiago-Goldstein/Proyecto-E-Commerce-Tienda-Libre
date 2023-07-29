@@ -1,12 +1,60 @@
 {% extends 'Home/index.html' %}
+{% load static %}
 
 {% block INDEX_TITULO %}
-    Sobre mi
+    Sobre mí
 {% endblock INDEX_TITULO %}
 
-
 {% block INDEX_CONTENIDO %}
-    <div class="text-center display-1 mb-5 mt-3">
-        Somos un equipo de desarollo Python
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center">
+                    <img src="{% static 'Home/img/yo.jpg' %}" class="rounded-circle img-fluid mx-auto d-block mb-4" alt="Foto de Santiago" style="max-width: 200px;">
+                    <h2>¡Hola, me llamo Santiago Goldstein!</h2>
+                    <p class="lead">Apasionado desarrollador Python y creador de esta página.</p>
+                </div>
+                
+                <div class="mt-4">
+                    <h3 class="text-center text-info">Sobre mí</h3>
+                    <p>Soy una persona dispuesta a aprender siempre y a escuchar críticas constructivas para mejorar día a día. Me gustan los desafíos y doy todo de mí para llegar al objetivo. En mi tiempo libre me gusta practicar sobre lo que fui estudiando, eso hace que esté en constante aprendizaje. Por estos motivos, ingresé a esta hermosa carrera en el mundo de la programación, comprometido con el trabajo, compañerismo y amando lo que hago ❤️.</p>
+                </div>
+                
+                <div class="mt-5">
+                    <h3 class="text-center text-info">Habilidades Técnicas</h3>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item bg-light">Python</li>
+                        <li class="list-group-item bg-light">Django</li>
+                        <li class="list-group-item bg-light">HTML/CSS</li>
+                        <li class="list-group-item bg-light">SQLite</li>
+                        <li class="list-group-item bg-light">Bootstrap</li>
+                        <!-- Agrega aquí más habilidades técnicas -->
+                    </ul>
+                </div>
+                
+                <div class="mt-4">
+                    <h3 class="text-center text-info">Controlador de Versiones</h3>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item bg-light">Git, Github</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-4">
+                    <h3 class="text-center text-info">Sistemas Operativos</h3>
+                    <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item bg-light">Windows</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+    <br>
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h3>Propuestas laborales</h3>
+            <p class="lead">¡Me encantaría escuchar tu propuesta y trabajar juntos!</p>
+            <a href="https://wa.me/+5491139556151" target="_blank" class="btn btn-primary btn-lg mt-3">Contáctame</a>
+        </div>
+    </section>
 {% endblock INDEX_CONTENIDO %}
+

@@ -5,9 +5,9 @@
             <h2 class="card-title">{{ card }}</h2>
             <p class="card-text"> {{ text }}</p>
             {% if image %}
-            <img src="{% static image %}" alt="Descripción de la imagen" class="img-fluid w-50">
+            <img src="{% static image %}" alt="Descripción de la imagen" class="img-fluid w-50 ">
             {% endif %}
         </div>
-        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Más información</a></div>
+        <div class="card-footer"><a class="btn btn-danger btn-sm" href={{ link }}>{{ boton_text }}</a></div>
     </div>
 </div>

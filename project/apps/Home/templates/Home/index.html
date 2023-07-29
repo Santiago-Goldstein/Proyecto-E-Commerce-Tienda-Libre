@@ -4,12 +4,13 @@
 {% block BASE_CONTENIDO %}
 
     <div class="row aling-items-center my-5">
-        <h1 class="pb-lg-3 text-bg-dark text-center  ">
+        <h1 class="pb-lg-3 text-bg-dark text-center">
             {% block INDEX_TITULO %}
                 ¡Vendé eso que ya no usas!
             {% endblock INDEX_TITULO %}
         </h1>
     </div>
+    
 
     {% block INDEX_CONTENIDO %}
 
@@ -27,29 +28,34 @@
         <div class="row ">
             <a href="{% url 'admin:index' %}" class="btn btn-outline-dark ">Panel de Administración</a>
         </div>
-        <div class="row ">
-            <a href="{% url 'Home:register' %}" class="btn btn-outline-dark ">Registrar nuevo vendedor</a>
-        </div>
     {% endif %}
 
 
 
     <!-- Heading Row-->
         <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'Home/img/tienda_libre.png' %}" alt="..." /></div>
+            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'Home/img/tienda_libre_sol.png' %}" alt="..." /></div>
             <div class="col-lg-5">
                 <h1 class="font-weight-light">TIENDA LIBRE</h1>
-                <p>Esta aplicación web fue creada con el fin de practicar mis conocimientos en Python/Django, la misma le permitirá registrarse, iniciar sesión, poner a la venta un producto y muchas otras cosas más. Te invito a que conozcas todas las características que esta web tiene para el usuario.</p>
-                <a class="btn btn-primary" href="https://wa.me/+5491139556151" target="_blank">Contactar</a>
+                <p>Esta aplicación web fue creada con el fin de practicar mis conocimientos en Python/Django, la misma le permitirá registrarse, iniciar sesión, poner a la venta un producto y muchas cosas más. Te invito a que conozcas todas las características que esta web tiene para el usuario.</p>
+                <div class="text-center ">
+                    <a class="btn btn-danger " href="https://wa.me/+5491139556151" target="_blank">Contactar</a>
+                </div>
             </div>
         </div>
+        
+        {% include 'Home/catalogo.html' %}        
 
+          <br>
     <!-- Content Row-->
         <div class="row gx-4 gx-lg-5 text-center ">
 
-            {% include 'Home/card.html' with card="Vehiculos" text="Autos y camionetas usados" image="Home/img/Autos.jpg" %}
-            {% include 'Home/card.html' with card="Ropa" text="Remeras y Buzos" image="Home/img/remeras.png"%}
-            {% include 'Home/card.html' with card="Comida" text="Comida Casera" image=""%}
+            {% include 'Home/card.html' with card="Vehiculos" text="Autos y camionetas usados" image="Home/img/Autos.png" boton_text="Ver más" link="producto/producto/list/?categoria=1"%}
+            {% include 'Home/card.html' with card="Ropa" text="Remeras y Buzos" image="Home/img/remeras.png" boton_text="Ver más" link="producto/producto/list/?categoria=2"%}
+            {% include 'Home/card.html' with card="Tecnología" text="Computación, Celulares y Televisores" image="Home/img/cpu.png" boton_text="Ver más" link="producto/producto/list/?categoria=5"%}
+            {% include 'Home/card.html' with card="Instrumentos Musicales" text="Guitarras, Bajos y Baterias" image="Home/img/instru.png" boton_text="Ver más" link="producto/producto/list/?categoria=5"%}
+            {% include 'Home/card.html' with card="Deportes y Fitness" text="Artículos de Deportes y Gym" image="Home/img/depor.png" boton_text="Ver más" link="producto/producto/list/?categoria=5"%}
+            {% include 'Home/card.html' with card="Electrodomésticos" text="Heladeras, Aires, Cocinas, Etc" image="Home/img/cpu.png" boton_text="Ver más" link="producto/producto/list/?categoria=5"%}
 
         </div>
     {% endblock INDEX_CONTENIDO %}

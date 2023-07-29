@@ -21,25 +21,34 @@
     </div>
 
     {% if productos %}
-        <ul>
-            {% for producto in productos %}
-                <li>                    
-                    <h3 class="fs-4">Categoría: {{ producto.categoria }} </h3>
-                    {{ producto.nombre }} ${{ producto.precio }} 
-                    <a href="{% url 'producto:producto_detail' producto.id %}" class="btn btn-secondary btn-sm">
-                        Ver detalle</a>
-                    {% if perms.producto.add_producto %}
-                        <a href="{% url 'producto:producto_update' producto.id %}" class="btn btn-primary btn-sm">
-                            Actualizar</a>
-                        <a href="{% url 'producto:producto_delete' producto.id %}" class="btn btn-danger btn-sm">
-                            Eliminar</a>      
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+    <div class="row">
+        {% for producto in productos %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center ">
+                        <h3 class="fs-4 text-center ">{{ producto.categoria }} </h3>
+                        <br>
+                        <div class="text-center ">
+                        {{ producto.nombre }} ${{ producto.precio }} 
+                        </div>
+                        <br>
+                        <a href="{% url 'producto:producto_detail' producto.id %}" class="btn btn-secondary btn-sm">
+                            Ver detalle</a>
+                        {% if perms.producto.add_producto %}
+                            <a href="{% url 'producto:producto_update' producto.id %}" class="btn btn-primary btn-sm">
+                                Actualizar</a>
+                            <a href="{% url 'producto:producto_delete' producto.id %}" class="btn btn-danger btn-sm">
+                                Eliminar</a>      
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
     {% else %}
         <p class="fs-4 fst-italic">No hay registros ingresados</p>
     {% endif %}
+
         
     <div class="d-grid gap-3">
         <a href="{% url 'producto:home' %}" class="btn btn-info">Ir a Productos</a>
