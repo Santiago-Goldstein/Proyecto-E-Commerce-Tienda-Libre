@@ -58,7 +58,7 @@ class ProductoCategoriaDetail(DetailView):
 ###########################
 
 
-class ProductoList(ListView):
+class ProductoList(LoginRequiredMixin, ListView):
     model = Producto
     template_name = 'producto_list.html'
     context_object_name = 'productos'
