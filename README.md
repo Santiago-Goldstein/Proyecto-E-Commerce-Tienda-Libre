@@ -46,7 +46,8 @@ El admin puede elegir las fotos de los avatares, que en un principio estan confi
 
 Al iniciar sesion en la url del navegador aparece un /login seguido del :8000, esto causa que al tocar en (ver más) del catalogo salte un error. Se soluciona eliminando el /login para dejar limpio el localhost, de esta forma se podra utilizar la pagina web sin inconvenientes.
 
-
+**Link a video mostrando el funcionamiento de la página**
+https://drive.google.com/file/d/1XaiHe6PVqzwU2ebRKrx9HYf0Yx7saQ6y/view?usp=sharing
 
 
 
