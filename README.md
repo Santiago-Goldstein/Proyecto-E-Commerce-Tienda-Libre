@@ -21,10 +21,6 @@ Se hizo un catalogo destacado en la pagina principal, teniendo la opcion de "ver
 
 **usuarios en la base de datos**
 
-admin : 1234  **Usuario Administrador**
-Sol : solcito1234  **Usuario Vendedor**
-Santiago : santy2681  **Usuario Normal**
-
 Usuario administrador: Tiene la capacidad de poder ver y editar todo tipo de datos de la base de datos.
 
 Usuario vendedor: Puede crear y editar categoria de productos y productos, pero no tiene acceso a la administración.
