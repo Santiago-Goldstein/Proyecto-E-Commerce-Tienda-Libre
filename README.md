@@ -1,5 +1,5 @@
-**Nombre del alumno: Goldstein Ibba, Santiago Catriel**
-**Nombre de la página: Tienda Libre**
+** 👋 Hola me llamo Santiago Goldstein **
+** Y esta es mi pagina web Tienda Libre**
 
 
 Tienda libre es conjunto de aplicaciones web, donde su funcion principal es poder crearnos una cuenta, iniciar sesion, poner a la venta productos y comprarlos.
