@@ -1,5 +1,5 @@
-**Nombre del alumno: Goldstein Ibba, Santiago Catriel**
-**Nombre de la página: Tienda Libre**
+** 👋 Hola me llamo Santiago Goldstein **
+** Y esta es mi pagina web Tienda Libre**
 
 
 Tienda libre es conjunto de aplicaciones web, donde su funcion principal es poder crearnos una cuenta, iniciar sesion, poner a la venta productos y comprarlos.
@@ -20,10 +20,6 @@ Se hizo un catalogo destacado en la pagina principal, teniendo la opcion de "ver
 
 
 **usuarios en la base de datos**
-
-admin : 1234  **Usuario Administrador**
-Sol : solcito1234  **Usuario Vendedor**
-Santiago : santy2681  **Usuario Normal**
 
 Usuario administrador: Tiene la capacidad de poder ver y editar todo tipo de datos de la base de datos.
 
