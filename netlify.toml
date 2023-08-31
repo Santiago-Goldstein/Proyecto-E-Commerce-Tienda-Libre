@@ -1,0 +1,4 @@
+[build]
+  base = "project"
+  publish = "project/apps/Home/static/Home"
+  command = "python /opt/build/repo/project/manage.py migrate"
