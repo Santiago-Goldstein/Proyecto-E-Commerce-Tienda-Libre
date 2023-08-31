@@ -31,7 +31,7 @@ SECRET_KEY = "mykey43599452"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['main--tiendalibre.netlify.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
