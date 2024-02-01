@@ -32,8 +32,8 @@
         "editor.defaultFormatter": "ms-python.autopep8",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-            "source.organizeImports": true,
-            "editor.formatOnType": true,
+            "source.organizeImports": "explicit",
+            "editor.formatOnType": "explicit"
         },
     },
     // *** ISORT
